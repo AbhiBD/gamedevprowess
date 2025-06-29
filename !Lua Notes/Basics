@@ -1,8 +1,8 @@
 Selection:
 
-- one end per conditional loop
-- no colons after selection statements (unlike python)
-- follows the structure:
+-- one end per conditional loop
+-- no colons after selection statements (unlike python)
+-- follows the structure:
 
 if variable <condition> then
     <statements>
@@ -14,7 +14,7 @@ if condition = 25 then
     print("suck a dick")
 end
 
-- to add more statements use functions else and elseif
+-- to add more statements use functions else and elseif
 
 e.g.
 
@@ -31,7 +31,7 @@ Loops:
 
 While loops:
 
-- follows the structure:
+-- follows the structure:
 
 while variable <condition> do
     <statements>
@@ -46,7 +46,7 @@ end
 
 For loops:
 
-- follows the structure:
+-- follows the structure:
 
 for <iterator>, <maxvalue>, <increment> do
     <statements>
@@ -62,9 +62,9 @@ end
 
 Functions:
 
-- can have as many paramters as u want
--returning works the same as python
--follows the structure:
+-- can have as many paramters as u want
+-- returning works the same as python
+-- follows the structure:
 
 function <functionname>(<parameters>)
     <statements>
@@ -80,7 +80,7 @@ increaseMessage(99, 6 , 12)
 
 print(message)
 
-- if message = 0 it will print 99
+-- if message = 0 it will print 99
 
 Comments:
 
@@ -92,30 +92,30 @@ line]]
 
 Local and Global Variables:
 
--use local to make variables local
+-- use local to make variables local
 
 e.g.
 
 local var = foo
 
--if a variable name is local it can be used in other functions 
+-- if a variable name is local it can be used in other functions 
 
 Tables:
 
--indexing starts at 1?!?!?!?!?!?!??!
--same behaviour as python (bad boy)
--follows the structure:
+-- indexing starts at 1?!?!?!?!?!?!??!
+-- same behaviour as python (bad boy)
+-- follows the structure:
 
 table1 ={<element1>, <element2>}
 
--to assign values at indexes:
+-- to assign values at indexes:
 
 e.g.
 
 table1[1] = 10
 
--index doesnt have to be a number 
--cant be accessed along with all other values with the pairs function in a loop
+-- index doesnt have to be a number 
+-- cant be accessed along with all other values with the pairs function in a loop
 --(go down in notes)
 
 e.g.
@@ -126,23 +126,23 @@ print(message)
 
 -will print 90
 
--to print a string index:
--follows the structure:
+-- to print a string index:
+-- follows the structure:
 
 print(table1.hello)
 
 To Append:
 
--doesnt take an index
--follows the structure:
+-- doesnt take an index
+-- follows the structure:
 
 table.insert(<tablename>, <value>)
 
 To access all values sequentially:
 
--cant print all variables like python (need to use ipairs or pairs function and 
---print variable)
--follows the structure:
+-- cant print all variables like python (need to use ipairs or pairs function and 
+-- print variable)
+-- follows the structure:
 
 for <index>, <variable> in ipairs(<table>)
     <statement>
@@ -158,7 +158,7 @@ for i,s in ipairs(table1)
     print(s)
 end
 
--prints all values stored in integer indexes from the start to end values of the table
+-- prints all values stored in integer indexes from the start to end values of the table
 
 e.g.2
 
@@ -166,11 +166,11 @@ for i,s in pairs(table1)
     print(s)
 end
 
--will print all values even with string indexes 
+-- will print all values even with string indexes 
 -- such as table1["hello"] = 5
 
--u can assign properties to a table
--Follows the structure:
+-- u can assign properties to a table
+-- follows the structure:
 
 <table>.<property> = <stringproperty>
 
