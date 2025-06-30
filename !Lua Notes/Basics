@@ -1,6 +1,6 @@
 Selection:
 
--- one end per conditional loop
+-- one "end" per conditional loop
 -- no colons after selection statements (unlike python)
 -- follows the structure:
 
@@ -46,6 +46,7 @@ end
 
 For loops:
 
+-- increment value isnt needed (assumed to be 1)
 -- follows the structure:
 
 for <iterator>, <maxvalue>, <increment> do
@@ -63,11 +64,18 @@ end
 Functions:
 
 -- can have as many paramters as u want
--- returning works the same as python
+-- returning and calling works the same as python
 -- follows the structure:
 
 function <functionname>(<parameters>)
     <statements>
+end
+
+OR 
+
+function <functionname>(<parameters>)
+    <statements>
+    return <variable>
 end
 
 e.g.
@@ -82,23 +90,32 @@ print(message)
 
 -- if message = 0 it will print 99
 
+
 Comments:
 
--- for a single line of Comments
+-- for a single line of comments
 
 --[[for 
 multi
 line]]
 
+
 Local and Global Variables:
 
--- use local to make variables local
+-- use "local" to make variables local
 
 e.g.
 
-local var = foo
+function greedyjews(foo)
+    local var = foo
+    var = var*1000000000000000000000000000
+    return var
+end
+
+jewmoney = greedyjews(100)
 
 -- if a variable name is local it can be used in other functions 
+
 
 Tables:
 
@@ -106,7 +123,7 @@ Tables:
 -- same behaviour as python (bad boy)
 -- follows the structure:
 
-table1 ={<element1>, <element2>}
+table1 = {<element1>, <element2>, <etc>}
 
 -- to assign values at indexes:
 
@@ -115,7 +132,7 @@ e.g.
 table1[1] = 10
 
 -- index doesnt have to be a number 
--- cant be accessed along with all other values with the pairs function in a loop
+-- can be accessed along with all other values with the pairs function in a loop
 --(go down in notes)
 
 e.g.
@@ -124,7 +141,7 @@ table1["hello"] = 90
 message = table1["hello"]
 print(message)
 
--will print 90
+-- will print 90
 
 -- to print a string index:
 -- follows the structure:
@@ -141,15 +158,15 @@ table.insert(<tablename>, <value>)
 To access all values sequentially:
 
 -- cant print all variables like python (need to use ipairs or pairs function and 
--- print variable)
+-- print variable at each index)
 -- follows the structure:
 
 for <index>, <variable> in ipairs(<table>)
-    <statement>
+    print(<variable>)
 end
 
 for <index>, <variable> in pairs(<table>)
-    <statement>
+    print(<variable>)
 end
 
 e.g.1
@@ -176,11 +193,13 @@ end
 
 e.g.
 
-table1.subject = "math"
+testScores.subject = "math"
 
 -is the same as 
 
-table1["subject"] = "math"
+testScores["subject"] = "math"
+
+-- allows for different tables to be part of the same subject 
 
 
 
