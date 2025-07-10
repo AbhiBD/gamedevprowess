@@ -38,11 +38,7 @@ function love.update(dt)
 end
 
 function love.draw()
-<<<<<<< HEAD
-    love.graphics.setColor(1,0,0, 0.7)
-=======
     love.graphics.setColor(1,0,0)
->>>>>>> 0cdc0b788afe701cac626bfe94085ff1616a687f
     love.graphics.circle('fill', target.x, target.y, target.radius)
 
 
