@@ -1,4 +1,4 @@
 # gamedevprowess
-for two studs, one dud in the mud, growing their buds
+for two studs growing their buds
 
 Week 0 - PONG
