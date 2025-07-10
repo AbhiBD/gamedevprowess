@@ -38,7 +38,7 @@ function love.update(dt)
 end
 
 function love.draw()
-    love.graphics.setColor(1,0,0, 0.2)
+    love.graphics.setColor(1,0,0)
     love.graphics.circle('fill', target.x, target.y, target.radius)
 
 
@@ -52,6 +52,8 @@ function love.mousepressed(x, y, button, istouch, press)
     if button == 1 then
         if distanceBetween(x,y,target.x,target.y) <= target.radius then
             score = score + 1
+            target.x = math.random(target.radius+10,love.graphics.getWidth()-target.radius+10)
+            target.y = math.random(target.radius+10,love.graphics.getHeight()-target.radius+10)
         end
     end
 end
