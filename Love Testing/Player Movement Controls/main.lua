@@ -3,6 +3,10 @@ function love.load()
     player.x = 400
     player.y = 200
     player.speed = 5
+    player.sprite = love.graphics.newImage('sprites/char.png')
+    background = love.graphics.newImage('sprites/background.png')
+    backgroundproperties = {}
+    backgroundproperties.scale = 6.3
 end
 
 function love.update(dt)
@@ -22,6 +26,8 @@ function love.update(dt)
 end
 
 function love.draw()
-    love.graphics.setColor(1, 1, 1)
-    love.graphics.circle('fill', player.x, player.y, 50)
+    love.graphics.scale(backgroundproperties.scale, backgroundproperties.scale)
+    love.graphics.draw(background,0,0)
+    love.graphics.scale(1/backgroundproperties.scale,1/backgroundproperties.scale)
+    love.graphics.draw(player.sprite, player.x, player.y)
 end

@@ -24,6 +24,7 @@ function love.update(dt)
 end
 
 function love.draw()
+    love.graphics.scale(10,10)
     love.graphics.draw(background, 0, 0)
     love.graphics.draw(player.sprite, player.x, player.y)
 end
