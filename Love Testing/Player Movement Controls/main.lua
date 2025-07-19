@@ -7,20 +7,21 @@ end
 
 function love.update(dt)
 
-    if love.keyboard.isDown("right") then
+    if love.keyboard.isDown("d") then
         player.x = player.x + player.speed
     end
-    if love.keyboard.isDown("left") then
+    if love.keyboard.isDown("a") then
         player.x = player.x - player.speed
     end
-    if love.keyboard.isDown("up") then
+    if love.keyboard.isDown("w") then
         player.y = player.y - player.speed
     end
-    if love.keyboard.isDown("down") then
+    if love.keyboard.isDown("s") then
         player.y = player.y + player.speed
     end
 end
 
 function love.draw()
+    love.graphics.setColor(1, 1, 1)
     love.graphics.circle('fill', player.x, player.y, 50)
 end
