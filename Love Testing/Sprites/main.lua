@@ -25,5 +25,6 @@ end
 
 function love.draw()
     love.graphics.draw(background, 0, 0)
+    love.graphics.scale(0.1, 0.1)
     love.graphics.draw(player.sprite, player.x, player.y)
 end
