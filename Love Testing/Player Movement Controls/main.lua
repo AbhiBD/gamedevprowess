@@ -22,5 +22,6 @@ function love.update(dt)
 end
 
 function love.draw()
+    love.graphics.setColor(1, 1, 1)
     love.graphics.circle('fill', player.x, player.y, 50)
 end
