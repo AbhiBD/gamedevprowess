@@ -1,6 +1,4 @@
-function love.load()
-    
-    anim8 = require 'libraries/anim8'
+anim8 = require 'libraries/anim8'
     love.graphics.setDefaultFilter('nearest', 'nearest')
     
     player = {}
@@ -8,8 +6,15 @@ function love.load()
     player.y = 200
     player.speed = 1
     player.sprite = love.graphics.newImage('sprites/char.png')
-    player.spritesheet = love.graphics.newImage('sprites/spritesheet1.png')
+    player.spritesheet = love.graphics.newImage('sprites/spritesheet1.png') 
+
+-- anim8 is used to make a grid of the sprite sheet
+-- each cell encapsulates one image within the sequence of the animation depending on direction
+-- the cell size is specificied within the function
+
     player.grid = anim8.newGrid(68,72, player.spritesheet:getWidth(), player.spritesheet:getHeight())
+
+-- this assigns columns 1-4 in each row to a specific direction
 
     player.animations = {}
     player.animations.down = anim8.newAnimation(player.grid('1-4', 1), 0.15)
@@ -20,6 +25,9 @@ function love.load()
     background = love.graphics.newImage('sprites/pallet.png')
     backgroundproperties = {}
     backgroundproperties.scale = 3.25
+
+-- player.state sets the current direction the player is in
+-- is used to change the direction of the player based on input of keys
 
     player.state = player.animations.down
  
@@ -54,6 +62,8 @@ function love.update(dt)
         isMoving = true
     end
 
+    -- if the character is not moving, this makes sure that the animation stops 
+    
     if isMoving == false then
         player.state:gotoFrame(1)
     end
@@ -62,7 +72,6 @@ end
 
 function love.draw()
     love.graphics.draw(background,0,0,nil, backgroundproperties.scale)
-
     player.state:draw(player.spritesheet, player.x,player.y, nil, 2)
     
 end
