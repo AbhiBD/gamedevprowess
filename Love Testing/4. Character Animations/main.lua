@@ -1,4 +1,6 @@
 function love.load()
+
+    love.window.setMode(800, 600, {resizable=true, vsync=1, minwidth=300, minheight=300})
     
     anim8 = require 'libraries/anim8'
     love.graphics.setDefaultFilter('nearest', 'nearest')
@@ -6,7 +8,7 @@ function love.load()
     player = {}
     player.x = 400
     player.y = 200
-    player.speed = 1
+    player.speed = 3
     player.sprite = love.graphics.newImage('sprites/char.png')
     player.spritesheet = love.graphics.newImage('sprites/spritesheet1.png')
     player.grid = anim8.newGrid(68,72, player.spritesheet:getWidth(), player.spritesheet:getHeight())
