@@ -14,6 +14,11 @@ end
 
 function love.update(dt)
 
+    -- use a constant*dt instead of using player.speed, to make the speed constant over varying frame rates
+    -- for e.g 120*dt makes sure that a character moves the same distance no matter the fps 
+    -- for e.g 3 pixels per frame at 20fps, means the character moves 60 pixels per second
+    -- 3 pixels per frame at 60 fps, means the character moves 180 pixels per second
+
     if love.keyboard.isDown("right") then
         player.x = player.x + player.speed
     end
