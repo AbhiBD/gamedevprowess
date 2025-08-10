@@ -1,21 +1,23 @@
 function love.load()
+    love.window.setMode(1080, 720, { resizable = true, vsync = 1, minwidth = 300, minheight = 300 })
 
-    love.window.setMode(1920,1080, {resizable=true, vsync=1, minwidth=300, minheight=300})
-    
     anim8 = require 'libraries/anim8'
     love.graphics.setDefaultFilter('nearest', 'nearest')
 
-    sti = require 'libraries.sti'
+    sti     = require 'libraries/sti'
     gameMap = sti('maps/testMap.lua')
 
-    
+    camera  = require 'libraries/camera'
+    cam     = camera()
+
+
     player = {}
     player.x = 400
     player.y = 200
     player.speed = 3
     player.sprite = love.graphics.newImage('sprites/char.png')
     player.spritesheet = love.graphics.newImage('sprites/spritesheet1.png')
-    player.grid = anim8.newGrid(68,72, player.spritesheet:getWidth(), player.spritesheet:getHeight())
+    player.grid = anim8.newGrid(68, 72, player.spritesheet:getWidth(), player.spritesheet:getHeight())
 
     player.animations = {}
     player.animations.down = anim8.newAnimation(player.grid('1-4', 1), 0.15)
@@ -28,11 +30,9 @@ function love.load()
     backgroundproperties.scale = 3.25
 
     player.state = player.animations.down
- 
 end
 
 function love.update(dt)
-
     local isMoving = false
 
     if love.keyboard.isDown("d") then
@@ -63,12 +63,40 @@ function love.update(dt)
     if isMoving == false then
         player.state:gotoFrame(1)
     end
-    
+
+    cam:lookAt(player.x, player.y)
+
+    local w = love.graphics.getWidth()
+    local h = love.graphics.getHeight()
+
+    if cam.x < w / 2 then
+        cam.x = w / 2
+    end
+
+    if cam.y < h / 2 then
+        cam.y = h / 2
+    end
+
+    local mapW = gameMap.width * gameMap.tilewidth
+
+    local mapH = gameMap.height * gameMap.tileheight
+
+    if cam.x > (mapW - w / 2) then
+        cam.x = ((mapW - w / 2))
+    end
+
+    if cam.y > (mapH - h / 2) then
+        cam.y = (mapH - h / 2)
+    end
 end
 
 function love.draw()
-    gameMap:draw()
+    cam:attach()
 
-    player.state:draw(player.spritesheet, player.x,player.y, nil, 2)
-    
+    gameMap:drawLayer(gameMap.layers["Ground"])
+    gameMap:drawLayer(gameMap.layers["Flora"])
+    gameMap:drawLayer(gameMap.layers["Signs"])
+    player.state:draw(player.spritesheet, player.x, player.y, nil, 2, nil, 34, 36)
+
+    cam:detach()
 end
