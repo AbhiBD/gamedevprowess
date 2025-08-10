@@ -7,7 +7,7 @@ function love.load()
 -- all sprites, be it the background or character need to be declared in the love.load function
 -- love.graphics.newImage('<filedirectory>') is the format used
 -- make sure the file containing the sprites is withing the game folder
-
+6. Sprites (art inserts)
     player.sprite = love.graphics.newImage('Sprites/annie.png')
     background = love.graphics.newImage('Sprites/leaguemap.png')
 end
