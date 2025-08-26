@@ -11,7 +11,7 @@ end
 e.g. 
 
 if condition = 25 then
-    print("suck a dick")
+    print("this sentence is displayed")
 end
 
 -- to add more statements use functions else and elseif
